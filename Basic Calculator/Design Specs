@@ -1,0 +1,22 @@
+Design Layout
+
+First 5 Steps of Design Process
+
+Identify Needs - Necessity for a calculator that has a simple design, yet elegant functionality.
+
+Information Phase - Current iPhone calculator has basic mathematical funtions (Add, Subtract, Multiply, Divide) with negative signs and also a percent sign and decimal. This is fine for the average user, but with more smartphone users going to college, having a little more functionality in a calculator never hurt.
+
+Stakeholder Analysis - iPhone users will be the primary stakeholder. If core functionality works, a more in depth calculator expansion for iPads can be looked into.
+
+Research - Currently no intentions of launching on App Store. If this does occur, proper research will be done to look into more advanced calculators that are currently available.
+
+Hazard Analysis - Primary hazards are dealing with memory allocation and making sure that once calculations are made, they are not wasting space on the phone. Using proper implementation and algorithms is also key for an efficient calculator. Lastly, more simple button layout, text design, and complexity of calculator come into play with regards to how much the calculator can compute.
+
+Backbone
+
+Implementation will involve the use of string indexing, NSString -> int conversion, and basic variable cars.
+
+Calculator will start with simple Addition/Subtraction/Mutiplication/Division
+Must press clear in order to do the next operation
+Does simple variable1 operation variable2 calculations.
+
