@@ -45,7 +45,7 @@ static bool doAnotherOperation; //boolean for if you want to do an operation tow
     [displayText setText: [displayText.text stringByAppendingString:value]];
 }
 
-
+//Addition method
 - (IBAction)addition:(id)sender {
     if (equationSolved) {
         doAnotherOperation = YES;
@@ -56,6 +56,7 @@ static bool doAnotherOperation; //boolean for if you want to do an operation tow
     [displayText setText: [displayText.text stringByAppendingString:@" + "]];
 }
 
+//Multiplication method
 - (IBAction)multiply:(id)sender {
     if (equationSolved) {
         doAnotherOperation = YES;
@@ -66,6 +67,7 @@ static bool doAnotherOperation; //boolean for if you want to do an operation tow
     [displayText setText: [displayText.text stringByAppendingString:@" * "]];
 }
 
+//Division method
 - (IBAction)division:(id)sender {
     if (equationSolved) {
         doAnotherOperation = YES;
@@ -76,6 +78,7 @@ static bool doAnotherOperation; //boolean for if you want to do an operation tow
     [displayText setText: [displayText.text stringByAppendingString:@" / "]];
 }
 
+//Subtraction method
 - (IBAction)subtract:(id)sender {
     if (equationSolved) {
         doAnotherOperation = YES;
@@ -86,13 +89,31 @@ static bool doAnotherOperation; //boolean for if you want to do an operation tow
     [displayText setText: [displayText.text stringByAppendingString:@" - "]];
 }
 
+//Exponential Method
 - (IBAction)exponential:(id)sender {
+    if (equationSolved) {
+        doAnotherOperation = YES;
+    }
+    signString = @"^";
+    value1 = [displayText text];
+    
+    [displayText setText: [displayText.text stringByAppendingString:@" ^ "]];
 }
 
+//Modulus method
 - (IBAction)mod:(id)sender {
+    if (equationSolved) {
+        doAnotherOperation = YES;
+    }
+    signString = @"%";
+    value1 = [displayText text];
+    
+    [displayText setText: [displayText.text stringByAppendingString:@" % "]];
 }
 
+//Add decimal
 - (IBAction)decimal:(id)sender {
+    [displayText setText: [displayText.text stringByAppendingString:@"."]];
 }
 
 - (IBAction)clearEntry:(id)sender {
@@ -114,10 +135,11 @@ Execute
     //Get starttng index of 2nd value
     NSUInteger val2index = [value1 length] + 2;
     value2 = [[displayText text] substringFromIndex: val2index];
-    
+    NSLog(value1);
+    NSLog(value2);
     //Make string values into integers
-    int val1 = [value1 integerValue];
-    int val2 = [value2 integerValue];
+    int val1 = [value1 floatValue];
+    int val2 = [value2 floatValue];
     
     /**
      Things needed to do:
@@ -156,6 +178,26 @@ Execute
         NSLog(@"%i + %i = %f", val1, val2, result);
         NSString *sumString = [NSString stringWithFormat:@"%f",result];        [displayText setText: sumString];
     }
+    
+    else if ([signString isEqualToString:@"^"]) {
+        result = 1;
+        for (double i = 0; i < val2; i++) {
+            result *= val1;
+            NSLog(@"%d",result);
+        }
+        
+        NSLog(@"%i ^ %i = %f", val1, val2, result);
+        NSString *sumString = [NSString stringWithFormat:@"%f",result];        [displayText setText: sumString];
+    }
+    
+    else if ([signString isEqualToString:@"%"]) {
+        
+        result = val1 % val2;
+        
+        NSLog(@"%i %% %i = %f", val1, val2, result);
+        NSString *sumString = [NSString stringWithFormat:@"%f",result];        [displayText setText: sumString];
+    }
+    
     
     else {
         NSLog(@"SHOULDN'T BE HERE.");
